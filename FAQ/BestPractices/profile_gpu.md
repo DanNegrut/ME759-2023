@@ -1,5 +1,9 @@
 # Profiling a GPU program with Nsight Compute
 
+> **Euler NOTE**:
+> 
+> The older versions of CUDA required to complete this task on Euler are not officially supported. Your mileage may vary.
+
 ### What is Nsight Compute?
 
 It's a kernel profiler for CUDA applications that comes with both the interactive and the command line interface. We will use the command line interface (`ncu`) to generate profiling data on Euler, and rely on the interactive interface to visualize the data on your local machine. 
@@ -9,16 +13,16 @@ It's a kernel profiler for CUDA applications that comes with both the interactiv
 
 We will use the `vector_addition.cu` code available at the [ME759 repo](https://github.com/DanNegrut/ME759/blob/main/2021Spring/GPU/vector_addition.cu) to demonstrate the profiling process. The following commands will be executed on Euler and **all of them should be included in a Slurm script**.
 
-First, we will use a different CUDA version for the profiling task since CUDA 11 has dropped the support for the Pascal architecture. You will need to:
+First, we will use a different CUDA version for the profiling task since CUDA versions after 11 dropped support for the Pascal architecture. You will need to:
 
 ```sh
-module load cuda/10.2
+module load nvidia/cuda/10.2.2
 ```
 then compile the code as usual with `nvcc` like:
 ```sh
 nvcc vector_addition.cu -Xcompiler -O3 -Xcompiler -Wall -Xptxas -O3 -o vector_addition
 ```
-Note that the `-std=c++17` flag is not supported with CUDA 10, so you'll have to modify your code accordingly if it relies on the more advanced C++ features. Once the executable is ready, we will profile the code with:
+Note that the `-std=c++17` flag is not supported with CUDA 10, so you'll have to modify your code accordingly if it relies on the more advanced C++ features. Once the executable is ready, we will profile the code (in an `sbatch` script) with:
 
 ```sh
 ncu -o outFileName --set full ./vector_addition <command line arguments>

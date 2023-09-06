@@ -5,7 +5,7 @@ Euler's rules make one thing very clear:
 
 ... that is, the a user shouldn't run programs that they write on the Login server for Euler.
 
-Normally, a program on Euler is run using a shell script and the `sbatch` command. The `sbatch` interpreter reads its configuration options from special directives within the shell script and executes the script a compute node while writing the results to a file. This is fine for most programs, but there is simply no way for a program to work without interactively receiving input from its user. In HPC, this comes up most frequently during the development of an application when the user is trying to debug their program.
+Normally, a program on Euler is run using a shell script and the `sbatch` command. The `sbatch` interpreter reads its configuration options from special directives within the shell script and executes the script on an automatically selected compute node while writing the results to a file. This is fine for most programs, but sometimes there is simply no way for a program to work without interactively receiving input from its user. In HPC, this comes up most frequently during the development of an application when the user is trying to debug their program.
 
 How, then, would a user be able to use interactive debugging tools such as `gdb`, `lldb`, or `cuda-gdb` on euler? Slurm makes this possible through jobs which run on a compute node and send input/output directly to the user's terminal.
 
@@ -17,7 +17,7 @@ As a general rule, Euler's researchers are discouraged from running interactive 
 
 ### The Exception
 
-The singular exception to the ban on interactive jobs is for students who don't have access to their own hardware for debugging. In this case, students may run interactive jobs which meet a certain set of requirements (see below).
+The singular exception to the restriction on interactive jobs is for students who don't have access to their own hardware for debugging. In this case, students may run interactive jobs which meet a certain set of requirements (see below).
 
 ## Launching Debugging Sessions
 
@@ -27,21 +27,21 @@ Within the scope of classes using Euler, there are three types of `srun` command
 
 ### `cuda-gdb`
 ```sh
-srun -p wacc -t 30 -s --pty -u -G 1 cuda-gdb [...]
+srun -p instruction -t 30 -s --pty -u -G 1 cuda-gdb [...]
 ```
 
 ### `gdb`
 ```sh
-srun -p wacc -t 30 -s --pty -u gdb [...]
+srun -p instruction -t 30 -s --pty -u gdb [...]
 ```
 
 ### `lldb`
 ```sh
-srun -p wacc -t 30 -s --pty -u lldb [...]
+srun -p instruction -t 30 -s --pty -u lldb [...]
 ```
 
 Take note of the slurm flags inserted before the debugger command
-- **`-p wacc`**: Use the `wacc` partition.
+- **`-p instruction`**: Use the `instruction` partition.
 - **`-t 30`**: Run for a maximum of 30 minutes.
 - **`-s`**: Allow sharing of resources with other jobs
 - **`--pty -u`**: Allocate an unbuffered pseudo-teletype device for the job (makes gdb work properly)
