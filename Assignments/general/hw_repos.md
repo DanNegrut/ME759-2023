@@ -21,7 +21,7 @@ If you cannot log in and complete your profile, contact one of the TAs immediate
 Once your TAs have notified you that they have created a repository for you, you should immediately check that it is working.
 1. Log in to the GitLab instance in a browser as before.
 1. Go to Projects > Your Projects.
-1. Open your me759-uname project.
+1. Open your repo759 project.
 1. Copy the "Clone" URL.
 1. From a shell, run `git clone my_repo_url`, substituting in your repo URL.
 1. Enter your euler login credentials.
