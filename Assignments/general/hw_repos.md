@@ -1,36 +1,4 @@
-<!---
-# Homework git Repositories
-All code files should be submitted via your ME759 git repository. Things that are not code or scripts should be submitted on Canvas.
 
-### Creating an Account
-Before we can make a repo for you, you will have to log in and create an account on the GitLab instance running on euler. You need to be on the UW Madison network in order to login.
-
-If you are logging in from somewhere other than campus you should set up [WiscVPN](https://kb.wisc.edu/helpdesk/page.php?id=68164). If you cannot access the VPN, contact the [helpdesk](https://it.wisc.edu/services/help-desk/).
-
-Once you are connected to the network, you can access the GitLab instance by opening [https://euler.wacc.wisc.edu](https://euler.wacc.wisc.edu) in a browser. Log in with your euler credentials and finish creating your profile.
-
-Once you have created your profile, you will receive a confirmation email at your email address. You must click on the link in this email in order to complete your account.
-
-> It is possible that the link in the email will not work, or that it will be pointing to a different server than the one you are expecting. This comes from an issue with the UW's firewall, and all you need to do to fix it is to edit the server name: replace `newton.msvc.wisc.edu:9443` with `euler.wacc.wisc.edu` to fix the link.
-
-If you cannot log in and complete your profile, contact one of the TAs immediately. There won't be any extensions on the homework for trouble that arises at the last minute.
-
----
-
-### Checking your Repo
-Once your TAs have notified you that they have created a repository for you, you should immediately check that it is working.
-1. Log in to the GitLab instance in a browser as before.
-1. Go to Projects > Your Projects.
-1. Open your repo759 project.
-1. Copy the "Clone" URL.
-1. From a shell, run `git clone my_repo_url`, substituting in your repo URL.
-1. Enter your euler login credentials.
-  * Note that your repo is empty, so you will see a notification of that.
-
-If any part of the above procedure fails, email one of your TAs immediately.
-
----
--->
 ### Login Gitlab
 1. Access the GitLab instance by opening [https://git.doit.wisc.edu/](https://git.doit.wisc.edu/) with your browser.
 1. Login using the bottom-right button, the UW-Madison NetID login option.
