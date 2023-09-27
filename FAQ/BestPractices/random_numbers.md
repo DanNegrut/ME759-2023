@@ -90,7 +90,7 @@ std::mt19937 generator(entropy_source());
 
 ### A More Complete Example
 
-The following example uses another Mersenne Twister implementation to generate 2¹⁶ random `double`s in the range [10, 15] and then prints the mean of those values.
+The following example uses another Mersenne Twister implementation to generate 2¹⁶ random `double`s in the range [10, 20] and then prints the mean of those values.
 
 ```c++
 #include <iostream>
